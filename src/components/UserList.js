@@ -12,15 +12,12 @@ function UserList() {
     let url = baseUrl;
 
     if (numberOfBoxes) {
-      url = `https://randomuser.me/api/?inc=email,gender=${filter},name,picture&results=${numberOfBoxes}`;
+      url = `https://randomuser.me/api/?results=${numberOfBoxes}&gender=${filter}`;
     }
 
     if (filter) {
       url = `https://randomuser.me/api/?results=${numberOfBoxes}&gender=${filter}`;
     }
-
-    console.log(url);
-    console.log(filter);
 
     fetch(url)
       .then((res) => res.json())
