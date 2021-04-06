@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+.maleUserBox {
+  background-color: rgb(205, 237, 255);
+}
+
+.femaleUserBox {
+  background-color: rgb(255, 202, 242);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
