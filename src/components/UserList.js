@@ -3,7 +3,7 @@ import User from "./User";
 
 function UserList() {
   const [users, setUsers] = useState([]);
-  const [numberOfBoxes, setNumberOfBoxes] = useState();
+  const [numberOfBoxes, setNumberOfBoxes] = useState(100);
   const [filter, setFilter] = useState();
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function UserList() {
         firstName={user.name.first}
         lastName={user.name.last}
         gender={user.gender}
-        picture={user.picture.thumbnail}
+        picture={user.picture.large}
       />
     ));
     return allUsers;
@@ -62,17 +62,23 @@ function UserList() {
 
   return (
     <div>
-      <label>Number of boxes:</label>
-      <input onChange={handleOnChange}></input>
-      <p>Number of results: {users.length}</p>
-      <div>
-        <select onClick={handleFilter}>
-          <option value="all">All</option>
-          <option value="female">Female</option>
-          <option value="male">Male</option>
-        </select>
+      <div className="header">
+        <h2 className="pageTitle">RANDOM USERS API</h2>
+        <label>Set the number of users: </label>
+        <input className="input" onChange={handleOnChange}></input>
+
+        <div>
+          <label>Filter users: </label>
+          <select onClick={handleFilter}>
+            <option value="all">All</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+        <p>Results: {users.length}</p>
       </div>
-      <div>{renderUsers()}</div>
+
+      <div className="usersBoxes">{renderUsers()}</div>
     </div>
   );
 }

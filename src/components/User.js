@@ -1,11 +1,11 @@
 function User({ title, firstName, lastName, gender, picture }) {
   return (
     <div className={gender === "male" ? "maleUserBox" : "femaleUserBox"}>
-      <h2>
+      <h3>
         {title}. {firstName} {lastName}
-      </h2>
-      <p>{gender}</p>
-      <img src={picture} alt={picture}></img>
+      </h3>
+      <p>{gender.toUpperCase()}</p>
+      <img className="profilePicture" src={picture} alt={picture}></img>
     </div>
   );
 }
