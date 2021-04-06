@@ -4,12 +4,22 @@ function Counter() {
   const [count, setCount] = useState(0);
   // Your code below
 
+  useEffect(() => {
+    const dataFromLocalStorage = localStorage.getItem("count") ?? "";
+    setCount(dataFromLocalStorage);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("count", Number(count));
+    console.log(count);
+  }, [count]);
+
   function handleDecrement() {
-    setCount(count - 1);
+    setCount(Number(count) - 1);
   }
 
   function handleIncrement() {
-    setCount(count + 1);
+    setCount(Number(count) + 1);
   }
 
   return (
